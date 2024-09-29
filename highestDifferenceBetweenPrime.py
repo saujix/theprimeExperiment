@@ -8,6 +8,7 @@
 #Date : 29 / 10 / 2024
 
 from sympy import isprime
+import time
 
 def  findnextPrime(input):
     t = input + 1
@@ -17,12 +18,21 @@ def  findnextPrime(input):
         t += 1
 x = 1
 highestNum = 0
+startTime = time.time()
 while 1:
     y = findnextPrime(x)
     diff = y-x
     if diff > highestNum:
         highestNum = diff
-        print(f"{y} - {x} = {highestNum}") # prints the highest difference between two consecutive primes
+        currentTime = time.time()
+        totalTime = currentTime - startTime
+        totalTime = round(totalTime,2)
+        print(f"{y} - {x} = {highestNum} || time taken {totalTime}s") # prints the highest difference between two consecutive primes
     x = y
+
+
+
+
+
 
 
